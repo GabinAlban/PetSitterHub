@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profilonsitter - PetsitterHub</title>
+        <link href="node-modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="bg-light">
+        <nav class="navbar navbar-expend-lg navbar-light bg-primary shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-dark" href="index.html">PetSitterHub</a>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-dark" href="login.html">Login</a>
+                    <a class="nav-link text-dark" href="register.html">Registrati</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container py-5">
+            <div class="row"
+            <div class="col-md-4">
+                <div class="card shadow-sm p-4 text-center">ù
+                    <h1 id="nomeSitter">Caricamento...</h1>
+                    <p id="cittaSitter" class="text-muted"></p>
+                    <p id="tariffaSitter" class="text-succes fw-bold fs-4"></p>
+                    <p id="descrizioneSitter"></p>
+                    <a href="#prenota" clas="btn btn-success w-100 btn-lg">Prenota Ora</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-8" id="prenta">
+            <div class="card shadow-sm p-4">
+                <h4 class="mb-4">Prenota il sitter</h4>
+                <div id="errore" class="alert alert danger" style="display:none;"></div>
+                <div id="successo" class="alert alert-success" style="display:none;"></div>
+                <form onsubmit="prenota(event)">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Servizio</label>
+                        <select id="servizio" class="form-select" required>
+                            <option value="> Sceglie un servizio"></option>
+                            <option value="passeggiata">Passeggiata</option>
+                            <option value="petsittering">Pet Sitting</option>
+                            <option value="pensione">Pensione</option>
+                            <option value="toelettatura">Toelettatura</option>
+                        </select> 
+                   </div>
+                   <div class="mb-3">
+                    <label class="form-label fw-bold">Data Inizio</label>
+                    <input type="date" id="dataInizio" class="form-control" required>
+                   </div>
+                   <div class="mb-3">
+                    <label class="form-label fw-bold">Data Fine</label>
+                    <input type="date" id="dataFine" class="form-control" required>
+                   </div>
+                   <button type="submit" class="btn btn-success w-100 btn-lg">
+                    Conferma prenotazione
+                   </button>
+
+                 </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="node-modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        window.onload = function(){
+            caricaSitter();
+        }
+    </script>
+    </body>
+</html>

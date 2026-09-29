@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initia-scale=1.0">
+        <title>Pagamento - PetsitterHub</title>
+        <link href="node-modules/bootstrap/dist/cass/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm">
+            <div class="container">
+                <a navbar-brand bfw-bold text-dark" href="index.html">PetSitterHub</a>
+            </div>
+        </nav>
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card "shadow p-4>
+                        <h3 class="text-center mb-4">Pagamento Sicuro</h3>
+                        <div class="alert alert-info">
+                            <strong>Il Pagamento è protetto !</strong><br>
+                            I Tuoi Dati Sono Al Sicuro
+                        </div>
+                        <div class="mb-3 p-3 bg-primary rounded">
+                            <h5>Riepilogo Prenotazione :</h5>
+                            <p id="riepilogo" class="mb-0">Caricamento</p>
+
+                        </div>
+                        <form onsubmit="effettuaPagamento(event)">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Nome sulla carta</label>
+                                <input type="text" id="nomeCarta" class="form-control" placeholder="Carla Bruni" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-bold">Scadenza</label>
+                                    <input type="text" id="scadenza" class="form-control" placeholder="MM//AA" maxlength="5" required>
+
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-bold">CVV</label>
+                                    <input type="text" id="cvv" class="form-control" placeholder="123" maxlength="3" required>
+                                </div>
+                            </div>
+                            <div id="errore" class="alert alert-danger" style="display:none;"></div>
+                            <div id="successo" class="alert alert-success" style="display:none;"></div>
+                            <button type="submit" class="btn btn-success w-100 btn-lg">
+                                Paga Ora
+                            </button>
+                        </form>
+                        <p class="text-center text-muted small mt-3">
+                            Paga sicuro con tutta serenita
+                        </p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            window.onload = function(){
+                var urlParams = new URLSearchParams(window.location.search);
+                var prezzo = urlParams.get('prezzo')|| '0';
+                var servizio = urlParams.get('servizio') || 'servizio';
+                document.getElementById('riepilogo').innerHTML=
+                '<strong>Servizio:</strong>' + servizio + '<br>' +'<strong>Totale:</strong> Euro' + prezzo;
+            }
+        </script>
+    </body>
+</html>

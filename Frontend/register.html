@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<htmml lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-widh, initial-scale=1.0">
+        <title> Registrati - PetsitterHub</title>
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="bg-light"
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-dark" href="index.html">PetSitterHub</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-dark" href="login.html">Login</a>
+                <a class="nav-link text-dark" href="register.html">Registrati</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <h2 class="text-center mb-4">Registrati</h2>
+                    <div id="errore" class="alert alert-danger" style="display: none;"></div>
+                    <div id="successo" class="alert alert-success" style="display: none;"></div>
+                    <form onsubmit="register(event)">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nome Completo</label> 
+                            <input type="text" id="nome" class="form-control" placeholder="Mario Rossi" required>
+
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="mario@gmail.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="........"required>
+                        </div>
+                        <div class="md-3">
+                            <label class="form-label fw-bold">Ruolo:</label>
+                            <select id="ruolo" class="form-select" required>
+                                <option value="">Scegli il tuo ruolo</option>
+                                <option value="proprietario">Proprietario</option>
+                                <option value="sitter">Pet Sitter</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Citta</label>
+                            <input type="text" id="citta" class="form-control" placeholder="Varese" required>
+                        </div>
+                        <button type="submit" bg-primary class="btn btn-success w-100 btn-lg">
+                            Registrati
+                        </button>
+                    </form>
+                    <p class="text-center mt-3">
+                        Hai Già Un Account ?
+                        <a href="login.html" class="text-success">Accedi</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</htmml>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+ <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PetSitterHub</title>
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-dark" href="#">PetSitterHub</a>
+                <div class=" navbar-nav ms-auto">
+
+                  <a class=" nav-link text-dark" href="login.html">Login</a>
+                  <a class=" nav-link text-dark" href="register.html">Registrati</a>
+                </div>
+            </div>
+        </nav>
+         <div class="bg-primary text-dark py-5">
+            <div class="container text-center">
+                <h2 class="display-4 fw-bold">Trova il tuo PetSitter ideale!</h2>
+                <p class="lead"</p>
+            
+         <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="cercaCitta" class="form-control form-control-lg" placeholder="Inserisci la tua città">
+                    <button class="btn btn-warning btn-lg" onclick="cercaSitter()">
+                        Cerca
+                    </button>
+                </div>
+            </div>      
+         </div>  
+         </div>
+        </div>
+        <!-- Sezione dei servizi -->
+        <div class="container py-5">
+            <h2 class="text-center mb-4">I NOSTRI SERVIZI</h2>
+            <div class="row">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">PET SITTING</h5>
+                            <p class="card-text">Assistenza a domicilio per il tuo animale domestico.</p>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-md-3 text-center mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">PASSEGIATE</h5>
+                        <p class="card-text">I nostri sitter offrono passeggiate sicure e divertenti per il tuo animale.</p>
+                    </div>
+                </div>
+            </div>                   
+                   <div class="col-md-3 text-center mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">TOELETTATURA</h5>
+                            <p class="card-text">Servizi di toelettatura professionale per mantenere il tuo animale pulito, felice ed in forma.</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">PENSIONE</h5>
+                            <p class="card-text">I nostri esperti badano il tuo animale quando sei via.</p>
+                        </div>
+                    </div> 
+                </div>  
+                <!-- Lista dei sitter -->
+                <div class="container pb-5">
+                    <h2 class="text-center mb-3">Affida Il Tuo Animale a Professionisti Qualificati e Verificati nella Tua Zona.</h2>
+                    <div id="listaSitter" class="row">
+                        <!-- I sitter verranno caricati qui  -->
+                         <div class="text-center">
+                   
+                         </div>
+                    </div>
+                </div> 
+                <footer class="bg-white text-dark text-center py-3">
+                    <p class="mb-0"> PEC: petsitterhub@pec.it / Telefono: 0331 123456</p>
+                    <p class="mb-0">Sede Legale: via sanvito silvestro 10, Varese.</p>
+                    <p class="mb-0">Copyright Tutti i diritti riservati.</p>
+            </footer>
+            <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="js/main.js">
+            </script>         
+                    </div>    
+    </body>
+</html>

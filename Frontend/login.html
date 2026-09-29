@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+ <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>- Login-PetSitterHub</title>
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="bg-light">
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-dark" href="index.html">PetSitterHub</a>
+                <div class=" navbar-nav ms-auto">
+
+                  <a class=" nav-link text-dark" href="login.html">Login</a>
+                  <a class=" nav-link text-dark" href="register.html">Registrati</a>
+                </div>
+            </div>
+        </nav>
+       
+
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="card shadow p-4">
+            <h2 class="text-center mb-4">Accedi</h2>
+            <div id="errore" class="alert alert-danger" style="display: none;"></div>
+            <div id="successo" class="alert alert-success" style="display: none;"></div>
+            <form onsubmit="login(event)">
+                <div class="mb-3"
+                <label class="form-label fw-bold">Email</label>
+                <input type="email" id="email" class="form-control"placeholder="mario@gmail.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="........" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100 btn-lg">
+                    Accedi
+                </button>
+            </form>
+
+               <p class="text-center mt-3">
+                Non Hai Un Account?
+                <a href="register.html" class="text-success">Registrati</a>
+               </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
