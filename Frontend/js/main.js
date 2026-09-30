@@ -313,7 +313,7 @@ function caricaMessaggi(utenteId){
             
         }
         // logout
-        functionlogout(){
+        function logout(){
             localStorage.removeItem('utente');
             window.location.href= 'index.html';
     }
