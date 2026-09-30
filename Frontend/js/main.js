@@ -78,7 +78,7 @@ function register(event){
     const ruolo = document.getElementById('ruolo').value;
     const citta = document.getElementById('citta').value;
     // chiamata dell'api di registrazione 
-    fetch('https://petsitterhub-production.up.railway.app/api/api/auth/register', {
+    fetch('https://petsitterhub-production.up.railway.app/api/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
