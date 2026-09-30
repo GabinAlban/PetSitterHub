@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:3000/api"; // URL del backend
+; // URL del backend
+const API_URL = "https://petsitterhub-production.up.railway.app/api";
 // Funzione per cercare i pet sitter in base alla città e alla data selezionata
 function cercaSitters() {
     // leggere la barra di ricerca
@@ -77,7 +78,7 @@ function register(event){
     const ruolo = document.getElementById('ruolo').value;
     const citta = document.getElementById('citta').value;
     // chiamata dell'api di registrazione 
-    fetch('http://localhost:3000/api/auth/register', {
+    fetch('https://petsitterhub-production.up.railway.app/api/api/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
