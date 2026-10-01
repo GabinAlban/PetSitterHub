@@ -195,10 +195,10 @@ function caricaPrenotazioni(utenteIdId){
         var inAttesa = prenotazioni.filter(function(p) {
             return p.stato === 'in_attesa';});
         var Accettate = prenotazioni.filter(function(p) {return p.stato==='accettata';});
-        Document.getElementById('prenotazioniAttesa').innerText = inAttesa.length;
+        document.getElementById('prenotazioniAttesa').innerText = inAttesa.length;
         document.getElementById('prenotazioniAccettate').innerText= Accettate.length;
         if(prenotazioni.length===0){
-            lista.innerHTML= '<p class="text-muted">Nessuna prenotazine</p>';
+            lista.innerHTML= '<p class="text-muted">Nessuna prenotazione</p>';
             return;
         }
         var html='';
@@ -210,10 +210,10 @@ function caricaPrenotazioni(utenteIdId){
             html += '<p class="mb-0 text-muted small">' + p.data_inizio + '_' + p.data_fine + '</p>';
             html += '</div>';
             html += '<div>';
-            html += '<span class="badge bg-' + badgeColor + '">' + p.stato + '</span';
+            html += '<span class="badge bg-' + badgecolor + '">' + p.stato + '</span';
             if(p.stato === 'in_attesa'){
-                html += ' <botton class="btn btn-sm btn-success ms-2" onclick="aggiornaPrenotazione(' + p.id + ',\'accetta\')">Accettata</button>';
-                html += ' <botton class="btn btn-sm btn-danger ms-1" onclick="aggiornaPrenotazione(' + p.id + ', \'rifiutata \')">Rifiutata</button>';
+                html += ' <button class="btn btn-sm btn-success ms-2" onclick="aggiornaPrenotazione(' + p.id + ',\'accetta\')">Accettata</button>';
+                html += ' <button class="btn btn-sm btn-danger ms-1" onclick="aggiornaPrenotazione(' + p.id + ', \'rifiutata \')">Rifiutata</button>';
             }
             html += '</div></div>';
         });
