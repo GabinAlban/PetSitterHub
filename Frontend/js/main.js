@@ -3,24 +3,26 @@ const API_URL = "https://petsitterhub-production.up.railway.app/api";
 // Funzione per cercare i pet sitter in base alla città e alla data selezionata
 function cercaSitters() {
     // leggere la barra di ricerca
-    const citta = document.getElementById('cercaCitta').value;
+    const citta = document.getElementById('cercaCitta').value.trim();
     if (!citta) {
         alert("Per favore, inserire una città.");
         return;
     }
-    // Effettua una richiesta GET al backend tramite API per ottenere i sitter
-    fetch(API_URL + '/sitter')
-        .then(function (response){
+
+    // Richiesta GET al backend passando la città
+    fetch(API_URL + '/sitter/cerca?citta=' + encodeURIComponent(citta))
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Errore HTTP ' + response.status);
+            }
             return response.json();
         })
-        .then(function(sitters){
-            // Aggiorna l'interfaccia con i risultati
-           mostraSitters(sitters);
+        .then(function (sitters) {
+            mostraSitters(sitters);
         })
-        .catch(function(err)  {
+        .catch(function (err) {
             console.log("Errore durante la ricerca dei sitter:", err);
         });
-
 }
 function mostraSitters(sitters) {
     const lista = document.getElementById('listaSitters');
