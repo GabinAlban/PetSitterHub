@@ -78,7 +78,7 @@ function register(event){
     const ruolo = document.getElementById('ruolo').value;
     const citta = document.getElementById('citta').value;
     // chiamata dell'api di registrazione 
-    fetch(fetch('https://petsitterhub-production.up.railway.app/api/auth/register|g', {
+    fetch(API_URL + '/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -91,45 +91,44 @@ function register(event){
             citta: citta
         })
     })
-    .then(function(response){
+    .then(function(response) {
         return response.json();
     })
-    .then(function(data){
-        if(data.errore){
-            document.getElementById('errore').style.display= 'block';
-            document.getElementById('errore').innerText= data.errore;
-        }else{
-            // Registrazione
-            document.getElementById('successo').style.display='block';
-            document.getElementById('successo').innerText= 'REgistrazione completata !';
-            setTimeout(function(){
-                window.location.href= 'login.html';
+    .then(function(data) {
+        if (data.errore) {
+            document.getElementById('errore').style.display = 'block';
+            document.getElementById('errore').innerText = data.errore;
+        } else {
+            document.getElementById('successo').style.display = 'block';
+            document.getElementById('successo').innerText = 'Registrazione completata!';
+            setTimeout(function() {
+                window.location.href = 'login.html';
             }, 1000);
         }
     })
-    .catch(function(err){
-        document.getElementById('errore').style.display= 'block';
-        document.getElementById('errore'),innerText= 'Errore Di Connessione Al Server !';
+    .catch(function(err) {
+        document.getElementById('errore').style.display = 'block';
+        document.getElementById('errore').innerText = 'Errore di connessione al server!';
     });
 }
 
-function caricaSitter(){
+function caricaSitter() {
     var urlparams = new URLSearchParams(window.location.search);
     var sitterId = urlparams.get('id');
-    if(!sitterId){
+    if (!sitterId) {
         window.location.href = 'indexedDB.html';
         return;
     }
-    fetch(API_URL + '/sitter' + sitterId)
-    .then(function(r){
+    fetch(API_URL + '/sitter/' + sitterId)
+    .then(function(r) {
         return r.json();
     })
-    .then(function(sitter){
-        document.getElementById('nomeSitter').innerText ='sitter #' + sitter.id;
-        document.getElementById('descrizioneSitter').innerText = sitter.descrizione ||'Nessuna descrizione';
-        document.getElementById('tariffaSitter').innerText = '€ euro' + sitter.tariffa_ora + '/ora';
+    .then(function(sitter) {
+        document.getElementById('nomeSitter').innerText = 'sitter #' + sitter.id;
+        document.getElementById('descrizioneSitter').innerText = sitter.descrizione || 'Nessuna descrizione';
+        document.getElementById('tariffaSitter').innerText = '€ ' + sitter.tariffa_ora + '/ora';
     })
-    .catch(function(e){
+    .catch(function(e) {
         console.log('Errore:', e);
     });
 }
@@ -339,5 +338,5 @@ function caricaMessaggi(utenteId){
         }, 2000);
     }, 2000);
 
-    }
+}
 
