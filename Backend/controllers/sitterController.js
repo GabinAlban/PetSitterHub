@@ -22,3 +22,26 @@ exports.getSitterById = function (req, res)  {
         return res.json(results[0]);
     });
 };
+
+exports.getSittersByCitta = (req, res) => {
+    const citta = (req.query.citta || '').trim();
+
+    if (!citta) {
+        return res.status(400).json({ message: 'Città mancante' });
+    }
+
+    const sql = `
+        SELECT s.*, u.nome, u.email, u.citta
+        FROM sitter s
+        JOIN utenti u ON s.utente_id = u.id
+        WHERE u.citta LIKE ?
+    `;
+
+    db.query(sql, [`%${citta}%`], (err, results) => {
+        if (err) {
+            console.error('Errore ricerca sitter per città:', err);
+            return res.status(500).json({ message: 'Errore nel recupero dei sitter' });
+        }
+        res.json(results);
+    });
+};
