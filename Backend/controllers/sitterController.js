@@ -30,12 +30,7 @@ exports.getSittersByCitta = (req, res) => {
         return res.status(400).json({ message: 'Città mancante' });
     }
 
-    const sql = `
-        SELECT s.*, u.nome, u.email, u.citta
-        FROM sitter s
-        JOIN utenti u ON s.utente_id = u.id
-        WHERE u.citta LIKE ?
-    `;
+    const sql = 'SELECT * FROM sitter WHERE citta LIKE ?';
 
     db.query(sql, [`%${citta}%`], (err, results) => {
         if (err) {
