@@ -29,7 +29,7 @@ db.query(sqlInsert, [nome, email, passawordCifrata, ruolo, citta], function(err,
 exports.login = function(req, res) {
     const email = req.body.email;
     const password = req.body.password;
-    const sqlSelect = 'SELECT * FROM utenti WHERE email = ?';
+    const sqlSelect = 'SELECT * FROM Utenti WHERE E-mail = ?';
     db.query(sqlSelect, [email], function(err, results) {
         if (err) {
             return res.status(500).json({ message: 'Errore durante il login' });
