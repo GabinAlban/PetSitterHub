@@ -58,14 +58,20 @@ function login(event) {
         body: JSON.stringify({email:email, password: password})   
         })
         .then(function(r){return r.json();})
-        .then(function(d){
+                .then(function(d){
             if(d.errore){
                 alert('Errore: ' + d.errore);
-            }else{
-                alert('Login effettuato !');
-                window.location.href='dashboard.html';
+                return;
             }
-    })
+            var utente = d.utente || d.user;
+            if(!utente){
+                alert('Risposta inattesa dal server: ' + JSON.stringify(d));
+                return;
+            }
+            localStorage.setItem('utente', JSON.stringify(utente));
+            alert('Login effettuato !');
+            window.location.href = 'dashboard.html';
+        })
     .catch(function(e){
        alert('Errore connessione');
     });
