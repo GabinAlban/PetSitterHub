@@ -61,7 +61,7 @@ function login(event) {
                 alert('Errore: ' + d.errore);
             }else{
                 alert('Login effettuato !');
-                window.location.href='index.html';
+                window.location.href='dashboard.html';
             }
     })
     .catch(function(e){
