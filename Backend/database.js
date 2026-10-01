@@ -1,19 +1,12 @@
-const dns = require('dns');
-dns.setDefaultOrder('ipv4first');
+
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  port: parseInt(process.env.MYSQLPORT) || 3306
-});
+const connection = mysql.createConnection(process.env.MYSQL_URL);
 
 connection.connect((err) => {
   if (err) {
     console.error('Errore di connessione al database:', err);
-    return;
+    process.exit(1);
   }
   console.log('Connesso al database MySQL');
 });
