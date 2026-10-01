@@ -18,7 +18,7 @@ function cercaSitters() {
            mostraSitters(sitters);
         })
         .catch(function(err)  {
-            console.log("Errore durante la ricerca dei sitter:", error);
+            console.log("Errore durante la ricerca dei sitter:", err);
         });
 
 }
